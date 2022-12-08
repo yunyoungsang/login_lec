@@ -1,3 +1,5 @@
+"use strict";
+
 // 모듈을 불러온다.
 const express=require('express');
 const app=express();
@@ -8,7 +10,8 @@ const home = require('./src/routes/home');
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
-
 app.use("/",home); // middleware
+app.use('/js',express.static(`${__dirname}/src/public/js`));
+
 
 module.exports=app;
